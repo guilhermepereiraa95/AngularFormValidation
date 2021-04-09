@@ -7,7 +7,7 @@
             <input type="text" id="name" class="form-control" 
             [ngClass]="verificaCampo(name)"
             placeholder="Nome" 
-            name="name" [ngModel]="usuario.name" #name="ngModel"
+            name="name" ngModel #name="ngModel"
             required>
             <div class="invalid-feedback">
                 Campo obrigatório
@@ -22,7 +22,7 @@
         <input type="email" id="email" class="form-control"
         [ngClass]="verificaCampo(email)"
         placeholder="nome@email.com"
-        name="email" #email="ngModel" [ngModel]="usuario.email" required
+        name="email" #email="ngModel" ngModel required
         email>
         
         <div class="invalid-feedback">
@@ -36,8 +36,9 @@
                 CEP:
             </label>
             <input type="number" class="form-control" name="cep" placeholder="Digite o CEP"
-            #cep="ngModel" [ngModel]="usuario.cep"
-            [ngClass]="verificaCampo(cep)" required>
+            #cep="ngModel" ngModel
+            [ngClass]="verificaCampo(cep)" 
+            (blur)="validaCep($event, formdata)" required>
             <div class="invalid-feedback">
                 Campo obrigatório
             </div>
@@ -47,7 +48,7 @@
                 Número:
             </label>
             <input name="num" type="number" class="form-control" placeholder="Número"
-            #num="ngModel" [ngModel]="usuario.num"
+            #num="ngModel" ngModel
             [ngClass]="verificaCampo(num)" required>
             <div class="invalid-feedback">
                 Campo obrigatório
@@ -58,19 +59,15 @@
                 Complemento:
             </label>
             <input name="complemento" type="text" class="form-control" placeholder="Complemento"
-            #complemento="ngModel" [ngModel]="usuario.complemento"
-            [ngClass]="verificaCampo(complemento)" required>
-            <div class="invalid-feedback">
-                Campo obrigatório
-            </div>
-
+            #complemento="ngModel" ngModel>
+           
         </div>
     </div>
     <div class="form-group has-validation">
         <div class="col-12">
             <label for="endereco" class="label-group">Endereço:</label>
             <input name="endereco" type="text" class="form-control" placeholder="Endereço"
-            #endereco="ngModel" [ngModel]="usuario.endereco"
+            #endereco="ngModel" ngModel
             [ngClass]="verificaCampo(endereco)" required>
             <div class="invalid-feedback">
                 Campo obrigatório
@@ -83,7 +80,7 @@
                 Bairro:
             </label>
             <input name="bairro" type="text" class="form-control" placeholder="Digite o bairro"
-            #bairro="ngModel" [ngModel]="usuario.bairro"
+            #bairro="ngModel" ngModel
             [ngClass]="verificaCampo(bairro)" required>
             <div class="invalid-feedback">
                 Campo obrigatório
@@ -93,8 +90,8 @@
             <label for="cidade" class="label-group">
                 Cidade:
             </label>
-            <input name="cidade" type="text" class="form-control" placeholder="Digite a cidade"
-            #cidade="ngModel" [ngModel]="usuario.cidade"
+            <input name="cidade" type="text" placeholder="Digite a cidade"
+            #cidade="ngModel" ngModel class="form-control"
             [ngClass]="verificaCampo(cidade)" required>
             <div class="invalid-feedback">
                 Campo obrigatório
@@ -105,7 +102,7 @@
                 Estado:
             </label>
             <input name="estado" type="text" class="form-control" placeholder="Estado"
-            #estado="ngModel" [ngModel]="usuario.estado"
+            #estado="ngModel" ngModel
             [ngClass]="verificaCampo(estado)" required>
             <div class="invalid-feedback">
                 Campo obrigatório

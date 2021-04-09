@@ -8,6 +8,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { DataDrivenFormComponent } from './data-driven-form/data-driven-form.component';
 import { FormsModule } from '@angular/forms';
 import { TemplateFormModule } from './template-form/template-form.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TemplateFormModule } from './template-form/template-form.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TemplateFormModule
+    TemplateFormModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
