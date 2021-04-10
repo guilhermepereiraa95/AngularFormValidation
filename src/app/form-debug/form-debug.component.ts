@@ -10,6 +10,12 @@ export class FormDebugComponent implements OnInit {
   @Input() formdata: any;
   constructor() { }
 
+
+  verificaCampo(bool: boolean){
+    if (bool){ return 'text-success';} else {return 'text-danger';}
+  }
+
+
   ngOnInit(): void {
     
   }

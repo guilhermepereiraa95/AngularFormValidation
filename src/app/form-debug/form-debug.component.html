@@ -4,13 +4,13 @@
     </div>
     <div *ngIf="formdata" class="card-body">
     <p>
-        Form válido {{ formdata.valid }}
+        Form válido <span [ngClass]="verificaCampo(formdata.valid)">{{ formdata.valid }}</span>
     </p>
     <p>
-        Form submetido {{ formdata.submitted }}
+        Form submetido <span [ngClass]="verificaCampo(formdata.valid)"> {{ formdata.submitted }}</span>
     </p>
     <p>
-        Form data json {{ formdata.value | json }}
+        Form data json <span [ngClass]="verificaCampo(formdata.valid)"> {{ formdata.value | json }} </span>
     </p>
     </div>
 
