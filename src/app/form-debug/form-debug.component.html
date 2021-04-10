@@ -1,16 +1,17 @@
-<div style="margin:10px;">
-    <div class="display-4" *ngIf="formdata">
+<div class="card text-center">
+    <div class="card-header">
         Detalhes do form
     </div>
-    <pre>
+    <div *ngIf="formdata" class="card-body">
+    <p>
         Form válido {{ formdata.valid }}
-    </pre>
-    <pre>
+    </p>
+    <p>
         Form submetido {{ formdata.submitted }}
-    </pre>
-    <pre>
+    </p>
+    <p>
         Form data json {{ formdata.value | json }}
-    </pre>
-    
+    </p>
+    </div>
 
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup } from '@angular/forms';
+import { Form } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs-compat';
 
@@ -29,13 +29,17 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form: Form): void {
-    console.log(form);
+  onSubmit(form: any): void {
+    
+    console.log(form.value);
     //console.log(this.usuario);
+    this.http.post('/form', form.value)
+    .map(response => response)
+    .subscribe(data => console.log(data));
   }
 
   validaCampo(campo: any){
-      return campo.valid && campo.dirty;
+      return campo.valid || campo.dirty;
   }
 
   verificaCampo(campo: any){
