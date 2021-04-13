@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: 'dataform', component: DataDrivenFormComponent},
-  {path: 'templateform', component: TemplateFormComponent}  
+  {path: 'templateform', component: TemplateFormComponent}, 
 ];
 
 @NgModule({

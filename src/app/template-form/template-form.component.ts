@@ -39,15 +39,15 @@ export class TemplateFormComponent implements OnInit {
   }
 
   validaCampo(campo: any){
-      return campo.valid || campo.dirty;
+      return campo.valid && campo.dirty;
   }
 
   verificaCampo(campo: any){
     if(this.validaCampo(campo)){
       return 'is-valid';
-    }else {
+    } else if (!this.validaCampo(campo)) {
       return 'is-invalid';
-    }
+    } else { return ''; }
   }
 
   validaCep(cep: any, form: Form){
