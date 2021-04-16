@@ -7,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FormDebugComponent implements OnInit {
 
-  @Input() formdata: any;
+  @Input() form: any;
+
   constructor() { }
 
-
   verificaCampo(bool: boolean){
-    if (bool){ return 'text-success';} else {return 'text-danger';}
+    if (bool){ return 'text-success';} else { return 'text-danger';}
   }
 
 

@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import 'rxjs-compat';
 
 @Component({
   selector: 'app-data-driven-form',
@@ -10,17 +12,35 @@ import { Form, FormBuilder, FormGroup } from '@angular/forms';
 export class DataDrivenFormComponent implements OnInit {
 
   form: FormGroup = this.formbuilder.group({
-    nome: this.formbuilder.control,
-    email: this.formbuilder.control
+    name: [null],
+    email: [null]
   });
   
   
-  constructor(private formbuilder: FormBuilder) { 
-   
+  constructor(
+    private formbuilder: FormBuilder,
+    private http: HttpClient
+    ) { }
+
+  resetar(){
+    this.form.reset();
   }
 
-  onSubmit(form: Form) {
-    console.log(this.form);
+  onSubmit() {
+    console.log(this.form.value);
+
+    this.http.post('https://httpbin.org/', this.form.value)
+    .map(response => response)
+    .subscribe(data => {
+
+    console.log(data);
+    
+    }, (error: Error) => alert('erro'),
+    
+    );
+
+    this.resetar();
+    
   }
 
   ngOnInit(): void {

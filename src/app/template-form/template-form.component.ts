@@ -33,9 +33,14 @@ export class TemplateFormComponent implements OnInit {
     
     console.log(form.value);
     //console.log(this.usuario);
-    this.http.post('/form', form.value)
+    this.http.post('https://httpbin.org/post', form.value)
     .map(response => response)
-    .subscribe(data => console.log(data));
+    .subscribe(data => {
+      console.log(data);
+
+      form.reset();
+      
+    }, (error) => alert(error));
   }
 
   validaCampo(campo: any){

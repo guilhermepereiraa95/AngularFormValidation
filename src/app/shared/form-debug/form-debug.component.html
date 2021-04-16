@@ -2,15 +2,15 @@
     <div class="card-header">
         Detalhes do form
     </div>
-    <div *ngIf="formdata" class="card-body">
+    <div *ngIf="form" class="card-body">
     <p>
-        Form válido <span class="text-uppercase" [ngClass]="verificaCampo(formdata.valid)">{{ formdata.valid }}</span>
+        Form válido <span class="text-uppercase" [ngClass]="verificaCampo(form.valid)">{{ form.valid }}</span>
     </p>
     <p>
-        Form submetido <span class="text-uppercase" [ngClass]="verificaCampo(formdata.submitted)"> {{ formdata.submitted }}</span>
+        Form submetido <span class="text-uppercase" [ngClass]="verificaCampo(form.submitted)"> {{ form.submitted }}</span>
     </p>
     <p>
-        Form data json <span> {{ formdata.value | json }} </span>
+        Form data json <span> {{ form.value | json }} </span>
     </p>
     </div>
 
