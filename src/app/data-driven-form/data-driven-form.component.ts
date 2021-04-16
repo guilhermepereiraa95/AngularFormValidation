@@ -29,7 +29,7 @@ export class DataDrivenFormComponent implements OnInit {
   onSubmit() {
     console.log(this.form.value);
 
-    this.http.post('https://httpbin.org/', this.form.value)
+    this.http.post('https://httpbin.org/post', this.form.value)
     .map(response => response)
     .subscribe(data => {
 
