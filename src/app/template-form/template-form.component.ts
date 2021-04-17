@@ -58,7 +58,6 @@ export class TemplateFormComponent implements OnInit {
   validaCep(cep: any, form: Form){
 
     cep = cep.target.value.replace(/\D/g, '');
-    
 
     if(cep != ''){
 
@@ -67,7 +66,6 @@ export class TemplateFormComponent implements OnInit {
       if (validaCep.test(cep)){
         this.http.get(`https://viacep.com.br/ws/${cep}/json/`).map(data => (data)).subscribe(
           dados => this.populaDados(dados, form));
-
       }
     }
 
@@ -104,6 +102,20 @@ export class TemplateFormComponent implements OnInit {
     });
 
 
+  }
+
+  resetar(form: any){
+    form.form.patchValue({
+      name: null,
+      email: null,
+      endereco: null,
+      num: null,
+      cep: null,
+      complemento: null,
+      bairro: null,
+      cidade: null,
+      estado: null
+    })
   }
 
 

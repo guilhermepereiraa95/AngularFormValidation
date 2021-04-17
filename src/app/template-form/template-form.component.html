@@ -37,7 +37,7 @@
             </label>
             <input type="number" class="form-control" name="cep" placeholder="Digite o CEP"
             #cep="ngModel" ngModel
-            [ngClass]="verificaCampo(cep)" 
+            [ngClass]="verificaCampo(cep)"
             (blur)="validaCep($event, form)" required>
             <div class="invalid-feedback">
                 Campo obrigatório
@@ -111,5 +111,6 @@
     </div>
     <button type="submit" class="btn btn-primary"
     [disabled]="!form.valid">Enviar</button>
+    <a class="btn btn-danger" (click)="resetar(form)">Apagar</a>
     <app-form-debug [form]="form"></app-form-debug>
 </form>

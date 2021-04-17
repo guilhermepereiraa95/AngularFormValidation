@@ -1,12 +1,12 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">  
     <div class="form-group has-validation">
         <div class="col-12">
-            <label for="name" class="label-control">Nome:</label>
+            <label for="name" class="label-control">Nome</label>
         </div>
         <div case="col-12">
             <input type="text" id="name" formControlName="name" class="form-control"
             placeholder="Nome"
-            required>
+            required [ngClass]="verificaCampo('name')">
             <div class="invalid-feedback">
                 Campo obrigatório
             </div>
@@ -19,13 +19,102 @@
             </label>
         </div>
         <div class="col-12">
-            <input type="text" id="email" formControlName="email" placeholder="nome@email.com" class="form-control">
+            <input type="email" formControlName="email" placeholder="nome@email.com" 
+            class="form-control" required [ngClass]="verificaCampo('email')">
         </div>
         <div class="invalid-feedback">
             Campo obrigatório
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+
+    <div class="form-group has-validation row">
+        <div class="col-4">
+            <label for="cep" class="label-control">
+                CEP
+            </label>
+        
+            <input type="cep" formControlName="cep" placeholder="00-000-000" 
+            class="form-control" required [ngClass]="verificaCampo('cep')">
+        </div>
+        <div class="invalid-feedback">
+            Campo obrigatório
+        </div>
+
+        <div class="col-4">
+            <label for="numero" class="label-control">
+                Número
+            </label>
+       
+            <input type="numero" formControlName="numero" placeholder="000" 
+            class="form-control" required [ngClass]="verificaCampo('numero')">
+        </div>
+        <div class="invalid-feedback">
+            Campo obrigatório
+        </div>
+
+        <div class="col-4">
+            <label for="complemento" class="label-control">
+                Complemento
+            </label>
+            <input type="complemento" formControlName="complemento" placeholder="Complemento" 
+            class="form-control" [ngClass]="verificaCampo('complemento')">
+        </div>
+        <div class="invalid-feedback">
+            Campo obrigatório
+        </div>
+    </div>
+
+    <div class="form-group has-validation">
+        <div class="col-12">
+            <label for="endereco" class="label-control">
+                Endereço
+            </label>
+            <input type="text" class="form-control" [ngClass]="verificaCampo('complemento')" placeholder="Endereço">
+        </div>
+    </div>
+
+    <div class="form-group has-validation row">
+        <div class="col-4">
+            <label for="bairro" class="label-control">
+                Bairro
+            </label>
+        
+            <input type="text" formControlName="bairro" placeholder="Bairro" 
+            class="form-control" required [ngClass]="verificaCampo('bairro')">
+        </div>
+        <div class="invalid-feedback">
+            Campo obrigatório
+        </div>
+
+        <div class="col-4">
+            <label for="estado" class="label-control">
+                Estado
+            </label>
+       
+            <input type="estado" formControlName="estado" placeholder="Estado" 
+            class="form-control" required [ngClass]="verificaCampo('estado')">
+        </div>
+        <div class="invalid-feedback">
+            Campo obrigatório
+        </div>
+
+        <div class="col-4">
+            <label for="cidade" class="label-control">
+                Cidade
+            </label>
+            <input type="cidade" formControlName="cidade" placeholder="Cidade" 
+            class="form-control" [ngClass]="verificaCampo('cidade')">
+        </div>
+        <div class="invalid-feedback">
+            Campo obrigatório
+        </div>
+
+        
+    </div>
+    
+
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Enviar</button>
     <a class="btn btn-danger" (click)="resetar()">Apagar</a>
     <app-form-debug [form]="form"></app-form-debug>
 </form>
+

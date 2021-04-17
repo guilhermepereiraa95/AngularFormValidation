@@ -12,12 +12,11 @@ export class FormDebugComponent implements OnInit {
   constructor() { }
 
   verificaCampo(bool: boolean){
-    if (bool){ return 'text-success';} else { return 'text-danger';}
+    return bool ? 'text-success' : 'text-danger';    
   }
 
 
   ngOnInit(): void {
-    
   }
 
 }
